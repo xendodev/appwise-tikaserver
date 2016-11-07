@@ -1,0 +1,9 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Logging": "/tmp/appwise-tikaserver",
+  "Ports": [
+    {
+      "ContainerPort": "9998"
+    }
+  ]
+}
