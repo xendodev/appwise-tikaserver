@@ -19,4 +19,4 @@ RUN	apt-get update \
 
 
 EXPOSE 9998
-ENTRYPOINT java -jar "-Xmx$(awk '/MemTotal/ {print int($2/1024-295)"m"}' /proc/meminfo)" /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+ENTRYPOINT java -jar "-Xmx$(awk '/MemTotal/ {print int($2/1024-200)"m"}' /proc/meminfo)" /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
