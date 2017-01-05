@@ -1,0 +1,19 @@
+branch-defaults:
+  default:
+    environment: appwise-tikaserver-dev
+    group_suffix: null
+  master:
+    environment: appwise-tikaserver-dev
+environment-defaults:
+  appwise-tikaserver-dev:
+    branch: null
+    repository: null
+global:
+  application_name: appwise-tikaserver
+  branch: null
+  default_ec2_keyname: xendo-key
+  default_platform: Docker 1.11.2
+  default_region: us-east-1
+  profile: null
+  repository: null
+  sc: null
