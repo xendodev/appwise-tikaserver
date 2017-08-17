@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-ENV TIKA_VERSION 1.14
+ENV TIKA_VERSION 1.16
 ENV TIKA_SERVER_URL https://www.apache.org/dist/tika/tika-server-$TIKA_VERSION.jar
 
 RUN	apt-get update \
@@ -13,7 +13,8 @@ RUN	apt-get update \
 		| awk '/"path_info": / { pi=$2; }; /"preferred":/ { pref=$2; }; END { print pref " " pi; };' \
 		| sed -r -e 's/^"//; s/",$//; s/" "//') \
 	&& echo "Nearest mirror: $NEAREST_TIKA_SERVER_URL" \
-	&& curl -sSL "$NEAREST_TIKA_SERVER_URL" -o /tika-server-${TIKA_VERSION}.jar \
+#	&& curl -sSL "$NEAREST_TIKA_SERVER_URL" -o /tika-server-${TIKA_VERSION}.jar \
+	&& curl -sSL http://archive.apache.org/dist/tika/tika-server-${TIKA_VERSION}.jar -o /tika-server-${TIKA_VERSION}.jar \
 #	&& gpg --verify /tmp/tika-server-${TIKA_VERSION}.jar.asc /tika-server-${TIKA_VERSION}.jar \
 	&& apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
